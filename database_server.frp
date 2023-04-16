@@ -1,0 +1,86 @@
+﻿<?xml version="1.0"?>
+<FRequestProject frequestVersion="1.2" name="DatabaseServer" mainUrl="http://localhost:5000/" uuid="{48cbf7e5-a01b-40a4-bf33-fa6786a92a74}" saveIdentCharacter="0">
+    <Request name="FolderExists" uuid="{a0c4035d-df7e-4dd1-ad4d-b0545f9a71d4}" order="0" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "FolderExists", "name": "folder"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="CreateFolder" uuid="{3d292cf1-c0df-4cb8-bdbb-c5851bd2d63a}" order="1" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "CreateFolder", "name": "folder", "password": "folderPassword"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="GetFolder" uuid="{a34cc7c2-3c4e-45b1-a5f4-c08ed4435d51}" order="2" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "GetFolder", "name": "folder", "password": "folderPassword"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="RenameFolder" uuid="{279b98e4-6bf8-4e14-8c55-0d265ada993f}" order="3" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "RenameFolder", "name": "folder", "password": "folderPassword", "newName": "newFolder"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="DeleteFolder" uuid="{97fc5bfc-b380-46d2-85da-900c8c660e6b}" order="4" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "DeleteFolder", "name": "folder", "password": "folderPassword"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="DatabaseExists" uuid="{ecf6dc86-2410-4305-b4d3-b76a1e66250b}" order="5" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "DatabaseExists", "name": "database", "folder": "folder", "folderPassword": "folderPassword"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="CreateDatabase" uuid="{bf5fbdf3-f3ec-4793-b78f-77e2521dd1cd}" order="6" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "CreateDatabase", "name": "database", "password": "databasePassword", "folder": "", "folderPassword": ""} ]]></Body>
+        <Headers />
+    </Request>
+    <Request name="GetDatabase" uuid="{8fd29f1e-28f6-4b5f-934b-a002140cd3bd}" order="7" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "GetDatabase", "name": "database", "password": "databasePassword", "folder": "", "folderPassword": ""}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="RenameDatabase" uuid="{a1940e34-a98d-42ce-99b2-db52664f4a3f}" order="8" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "RenameDatabase", "name": "database", "password": "databasePassword", "newName": "newDatabase", "folder": "", "folderPassword": ""}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="DropDatabase" uuid="{70c86348-47e4-49a7-b9b7-2fc364fbde34}" order="9" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "DropDatabase", "name": "database", "password": "databasePassword", "folder": "", "folderPassword": ""}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="CreateTable" uuid="{11907d8c-4567-4d87-b0bc-b806f4f065a9}" order="10" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "CreateTable", "database": "database", "password": "databasePassword", "name": "table", "columns": ["col1", "col2", "col3"], "folder": "folder", "folderPassword": "folderPassword"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="DropTable" uuid="{a0b52d80-f48d-4558-8ff1-34d2b185bc0d}" order="11" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "DropTable", "database": "database", "password": "databasePassword", "name": "table", "folder": "folder", "folderPassword": "folderPassword"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="AddColumn" uuid="{c70619cb-7ec8-4ea7-a6be-3af9f6a5d176}" order="12" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "AddColumn", "database": "database", "password": "databasePassword", "table": "table", "column": "col4", "datatype": "TEXT", "folder": "folder", "folderPassword": "folderPassword"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="Select" uuid="{227eb68e-c25a-4127-9647-3ef05f99c81c}" order="13" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "Select", "database": "database", "password": "databasePassword", "table": "table", "columns": ["c", "c", "c"], "where": [], "folder": "folder", "folderPassword": "folderPassword"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="Insert" uuid="{b49cf3c9-f41b-4a26-9b4b-cd30598ea9ee}" order="14" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "Insert", "database": "database", "password": "databasePassword", "table": "table", "values": ["val1", "val2", "val3"], "columns": ["c", "c", "c"], "multiValues": [["val1", "val2", "val3"], ["val11", "val22", "val33"], ["val111", "val222", "val333"]], "folder": "folder", "folderPassword": "folderPassword"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="Update" uuid="{587f2f96-554b-42fb-a59a-5e41aea6a67b}" order="15" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "Update", "database": "database", "password": "databasePassword", "table": "table", "columns": ["val1", "val2", "val3"], "values": ["c", "c", "c"], "where": [], "folder": "folder", "folderPassword": "folderPassword"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="Delete" uuid="{c5969656-e0f7-4373-95fb-4918aac0cc2e}" order="16" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "Delete", "database": "database", "password": "databasePassword", "table": "table", "where": [], "folder": "folder", "folderPassword": "folderPassword"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="SQL" uuid="{7beccbf7-b9b4-434d-9b40-ebefe5556366}" order="17" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="0"><![CDATA[{"action": "SQL", "database": "database", "password": "databasePassword", "table": "table", "statement": "", "folder": "folder", "folderPassword": "folderPassword"}]]></Body>
+        <Headers />
+    </Request>
+    <Request name="TEST" uuid="{c02e1e2e-0348-46fb-95a1-133318d55560}" order="18" bOverridesMainUrl="false" overrideMainUrl="" path="/" type="1" bDownloadResponseAsFile="false" bDisableGlobalHeaders="true">
+        <Body type="1">
+            <FormKeyValue>
+                <Key><![CDATA[action]]></Key>
+                <Value><![CDATA[FolderExists]]></Value>
+                <Type>0</Type>
+            </FormKeyValue>
+        </Body>
+        <Headers />
+    </Request>
+    <GlobalHeaders />
+</FRequestProject>
