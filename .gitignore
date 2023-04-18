@@ -3,5 +3,5 @@ __pycache__/
 *.zip
 *.pyc
 *.code-workspace
-ds_client/
+ds_dashboard/
 json_server/

@@ -1,2 +1,2 @@
 @echo off
-python start_server.py
+python server/start_server.py

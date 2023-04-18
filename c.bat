@@ -1,2 +1,2 @@
 @echo off
-python start_client.py
+python client/start_client.py
