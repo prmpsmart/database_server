@@ -3,7 +3,7 @@ It's a small database server that allows uses of the JSON API to manage database
 
 
 ## HTTP request specifications
-The specifications is fully written in the [server_request_schema.json](src/server_request_schema.py).
+The specifications is fully written in the [server_request_schema.json](server/src/server_request_schema.py).
 
 > *where* parameter is in this format:
 >
@@ -78,4 +78,4 @@ Supported actions are listed below:
 
 
 ## Examples
-Example requests are located in the [start_client.py](start_client.py) file. Uncomment the lines needed to test each request, or use the [FRequest](https://github.com/fabiobento512/FRequest) software to make the request for speedy response (as its written in C++).
+Example requests are located in the [start_client.py](client/start_client.py) file. Uncomment the lines needed to test each request, or use the [FRequest](https://github.com/fabiobento512/FRequest) software to make the request for speedy response (as its written in C++).
