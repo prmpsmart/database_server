@@ -1,12 +1,9 @@
 from http import HTTPStatus
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
-import socket
 
-from ..commons import DictObj
+from .commons import DictObj
 from .models import *
 
-Host = socket.gethostbyname(socket.gethostname())
-Port = int(ENV.Port or 5000)
 
 
 class DatabaseServer(ThreadingHTTPServer):
@@ -17,9 +14,10 @@ class DatabaseServer(ThreadingHTTPServer):
             (Host, Port),
             DatabaseHTTPRequestHandler,
         )
+        print((Host, Port))
 
     def serve_forever(self):
-        print("Serving on http://%s:%d" % self.server_address)
+        print("Database Server at http://%s:%d" % self.server_address)
         super().serve_forever()
 
 
@@ -44,9 +42,9 @@ class DatabaseHTTPRequestHandler(BaseHTTPRequestHandler):
 
         return dictObj
 
-    def sendDictObj(self, dictObj: DictObj, status: int = HTTPStatus.OK):
+    def sendDictObj(self, dictObj: DictObj):
         json = dictObj.to_json().encode()
-        self.send_response_only(status)
+        self.send_response_only(HTTPStatus.OK)
         self.send_header("content-length", len(json))
         self.end_headers()
         self.wfile.write(json)
@@ -58,7 +56,10 @@ class DatabaseHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         if dictObj := self.dictObj:
-            # print(f"Request: {dictObj.to_json()}")
+
+            # log
+            self.log_request(dictObj)
+            # log
 
             if dictObj.action in SERVER_REQUEST_SCHEMA.actions:
                 action_method = getattr(self, dictObj.action, None)
@@ -68,13 +69,9 @@ class DatabaseHTTPRequestHandler(BaseHTTPRequestHandler):
                 status = INVALID_REQUEST
 
             if isinstance(status, int):
-                status = DictObj(
-                    status=status,
-                    message=self.getMessage(status),
-                )
+                status = DictObj(status=status)
 
-            elif isinstance(status, DictObj):
-                status.message = self.getMessage(status.status)
+            status.message = self.getMessage(status.status)
 
             self.sendDictObj(status)
 
@@ -201,8 +198,8 @@ class DatabaseHTTPRequestHandler(BaseHTTPRequestHandler):
             dictObj.password,
             dictObj.table,
             dictObj["values"],
-            dictObj.columns,
             dictObj.where,
+            dictObj.columns,
             dictObj.folder,
             dictObj.folderPassword,
         )

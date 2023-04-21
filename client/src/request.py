@@ -1,5 +1,5 @@
 from typing import Any, Union
-import time, json
+import json
 from http.client import HTTPConnection
 from .miscs import *
 
@@ -12,7 +12,7 @@ class Request:
         dump = json.dumps(kwargs)
         return print(dump)
 
-        connection = HTTPConnection("localhost", 5000, timeout=self.timeout)
+        connection = HTTPConnection(ENV.Server, ENV.Port or 443, timeout=self.timeout)
         connection.request("POST", "/", dump)
         response = connection.getresponse()
         body = response.read(response.headers.get(b"content-length"))

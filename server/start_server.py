@@ -1,5 +1,13 @@
-from src.server.server import *
+from src.server import *
 from src.reloader import run_with_reloader
+import signal
+
+
+def quit(*args):
+    exit()
+
+
+signal.signal(signal.SIGINT, quit)
 
 
 LOAD()
