@@ -5,3 +5,4 @@ __pycache__/
 *.code-workspace
 ds_dashboard/
 json_server/
+assets/

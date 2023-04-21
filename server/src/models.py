@@ -665,7 +665,7 @@ class CRUD:
         password: str,
         table: str,
         columns: Union[str, list[str]],
-        where: list = [],
+        where: str = "",
         folder: str = "",
         folderPassword: str = "",
     ):
@@ -737,8 +737,8 @@ class CRUD:
         password: str,
         table: str,
         values: list[Any],
+        where: str,
         columns: list[str] = [],
-        where: str = "",
         folder: str = "",
         folderPassword: str = "",
     ):
@@ -769,7 +769,7 @@ class CRUD:
         database: str,
         password: str,
         table: str,
-        where: str = "",
+        where: str,
         folder: str = "",
         folderPassword: str = "",
     ):
@@ -929,7 +929,7 @@ class Statement:
         table: str,
         columns: list[str],
         values: list[str],
-        where: str = "",
+        where: str,
     ):
         return f"UPDATE {table} SET {cls.equateColumnValues(columns, values)} WHERE {where};"
 
@@ -937,7 +937,7 @@ class Statement:
     def delete(
         cls,
         table: str,
-        where: str = "",
+        where: str,
     ):
         return f"DELETE FROM {table} WHERE {where};"
 

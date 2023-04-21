@@ -1,6 +1,6 @@
-import os, hashlib, dotenv
-from ..server_request_schema import SERVER_REQUEST_SCHEMA
-from ..commons import *
+import os, hashlib, dotenv, socket
+from .server_request_schema import SERVER_REQUEST_SCHEMA
+from .commons import *
 
 
 CONFIG_ERROR = True
@@ -11,12 +11,11 @@ SQL_DB = os.path.join(CWD, "SQL_DB")
 ENV = DictObj()
 
 CONFIG = "server_config.env"
-CONFIG_ENV = os.path.join(CWD, CONFIG)
-CONFIG_ENV = CONFIG
+CONFIG = os.path.join(CWD, CONFIG)
 
 
 try:
-    ENV.update(dotenv.Dotenv(CONFIG_ENV))
+    ENV.update(dotenv.Dotenv(CONFIG))
     DatabaseFolder = ENV.DatabaseFolder
     if DatabaseFolder:
         try:
@@ -37,10 +36,22 @@ try:
         print(f'DatabaseFolder not set in the "{CONFIG}" file')
 
 except FileNotFoundError as err:
-    print(f"{err} '{CONFIG}' file not present in the installation directory.")
+    print(f"{err} file not present in the installation directory.")
 
 if CONFIG_ERROR:
     exit()
+
+Host = socket.gethostbyname(socket.gethostname())
+Port = ENV.Port
+
+try:
+    Port = int(Port)
+except:
+    Port = 0
+
+if not Port:
+    Port = 80
+    print('Port not provided in the server_config.env file, port 80 is used.')
 
 
 sha224 = lambda password: hashlib.sha224(password.encode()).hexdigest()

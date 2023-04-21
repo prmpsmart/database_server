@@ -1,5 +1,5 @@
 import os, dotenv
-from ..commons import *
+from .commons import *
 
 
 CONFIG_ERROR = False
